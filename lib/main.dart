@@ -1,5 +1,7 @@
+
 import 'package:flutter/material.dart';
-import 'package:widget_gallery/app_bar.dart';
+import 'package:widget_gallery/fab.dart';
+import 'app_bar.dart';
 void main()=> runApp(Appbar());
 
 class Appbar extends StatelessWidget {
@@ -15,7 +17,7 @@ Widget build(BuildContext context)
     useMaterial3: true),
 
     home:
-      Appdemo(),
+      FAB(),
 
 
   );

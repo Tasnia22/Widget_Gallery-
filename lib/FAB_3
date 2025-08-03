@@ -1,0 +1,70 @@
+import 'package:flutter/material.dart';
+
+void main() {
+  runApp(const MyApp());
+}
+
+class MyApp extends StatelessWidget {
+  const MyApp({super.key});
+
+  // This widget is the root of your application.
+  @override
+  Widget build(BuildContext context) {
+    return MaterialApp(
+      title: 'Flutter Demo',
+      debugShowCheckedModeBanner: false,
+      theme: ThemeData(
+        colorScheme: ColorScheme.fromSeed(seedColor: const Color.fromARGB(255, 52, 56, 54)),
+      ),
+      home: const MyHomePage(title: 'Flutter Demo Home Page'),
+    );
+  }
+}
+
+class MyHomePage extends StatefulWidget {
+  const MyHomePage({super.key, required this.title});
+
+ 
+  final String title;
+
+  @override
+  State<MyHomePage> createState() => _MyHomePageState();
+}
+
+class _MyHomePageState extends State<MyHomePage>
+{
+  @override
+ Widget build(BuildContext context)
+ {
+
+  return Scaffold(
+    appBar: AppBar(
+      title: Text('New Job',
+      style: TextStyle(color: const Color.fromARGB(255, 26, 26, 26)),
+    ),
+    ),
+
+            body: Column(
+                        children: [
+                              FloatingActionButton(onPressed:(){ },
+                              child: Icon(Icons.edit),),
+
+  SizedBox(height:32),
+
+                FloatingActionButton.extended(onPressed: (){},
+                icon: Icon(Icons.add),
+                label:Text("Add"),),
+
+
+SizedBox(height: 23),
+
+               FloatingActionButton(onPressed:() {},
+              child: Icon(Icons.share),),],),
+
+
+floatingActionButtonLocation: FloatingActionButtonLocation.centerFloat,
+floatingActionButton: FloatingActionButton(onPressed: (){},
+child: Icon(Icons.density_small),),
+);
+}
+}

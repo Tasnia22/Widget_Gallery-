@@ -1,0 +1,65 @@
+import 'package:flutter/material.dart';
+
+void main()
+{
+
+    runApp(MyApp());
+}
+
+class MyApp extends StatelessWidget
+
+{
+  @override
+
+Widget build(BuildContext context)
+{
+  return MaterialApp(
+    title:'Alert Dialog box',
+    home:MyHomePage(),
+  );
+  
+
+
+}
+
+}
+
+class MyHomePage extends StatelessWidget
+{
+  void showMyDialog(BuildContext context)
+  {
+    showDialog(context: context,
+     builder: (context)
+     {
+      return AlertDialog(
+        title:Text('Alert here'),
+        content: Text('Do not touch.'),
+        actions: [
+          TextButton(onPressed: (){
+                  Navigator.of(context).pop(); // Close the dialog
+
+          },
+           child: Text('Ok'),),
+        ],
+      );
+     },);
+  }
+  @override
+  Widget build(BuildContext context)
+  {
+    return Scaffold(
+      appBar: AppBar(
+        title:Text('Alert Dialog Box'),
+      ),
+
+      floatingActionButtonLocation: FloatingActionButtonLocation.endFloat,
+      floatingActionButton:FloatingActionButton.extended(onPressed:(){
+        showMyDialog(context);
+      },
+       label:Text('press'),
+       icon: Icon(Icons.more),),
+    );
+  }
+}
+
+

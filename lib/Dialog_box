@@ -1,0 +1,118 @@
+import 'package:flutter/material.dart';
+
+void main()
+{
+
+    runApp(MyApp());
+}
+
+class MyApp extends StatelessWidget
+
+{
+  @override
+
+Widget build(BuildContext context)
+{
+  return MaterialApp(
+    title:'Alert Dialog box',
+    home:MyHomePage(),
+  );
+  
+
+
+}
+
+}
+
+class MyHomePage extends StatelessWidget
+{
+  void showMyDialog(BuildContext context)
+  {
+    showDialog(context: context,
+     builder: (context)
+     {
+      return AlertDialog(
+        title:Text('Alert here'),
+        content: Text('Do not touch.'),
+        actions: [
+          TextButton(onPressed: (){
+                  Navigator.of(context).pop(); // Close the dialog
+
+          },
+           child: Text('Ok'),),
+        ],
+      );
+     },);
+  }
+  @override
+  Widget build(BuildContext context)
+  {
+    return Scaffold(
+      appBar: AppBar(
+        title:Text('Alert Dialog Box'),
+      ),
+
+      floatingActionButtonLocation: FloatingActionButtonLocation.endFloat,
+      floatingActionButton:Column(
+        mainAxisSize: MainAxisSize.min,
+        crossAxisAlignment: CrossAxisAlignment.end,
+      children: [
+      FloatingActionButton.extended(onPressed:(){
+        showMyDialog(context);
+      },
+       label:Text('press'),
+       icon: Icon(Icons.more),),
+       SizedBox(height: 21),
+FloatingActionButton(
+  onPressed: () {
+    Dialogbox(context);
+  },
+  child: Icon(Icons.share), // Not icon:
+),
+
+     ],), );
+  }
+}
+
+
+void Dialogbox(BuildContext context)
+{
+
+  showDialog(context: context,
+   builder: (BuildContext context)
+   {
+  return Dialog(
+    shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(13)),
+    child:SizedBox(width:100,height: 170,
+    child:Padding(padding:EdgeInsets.all(20),
+    child:Column(
+      mainAxisSize: MainAxisSize.min, 
+
+      children: [
+        Align(
+          alignment: Alignment.topLeft,
+        
+      child:Text('New news',
+      style: TextStyle(fontFamily:'Arial',
+      fontWeight: FontWeight.bold,
+      fontSize:22,
+      ),
+      ),),
+      SizedBox(height: 12),
+      Text('choose one as your wish'),
+      SizedBox(height: 32),
+      Row(
+        mainAxisAlignment: MainAxisAlignment.end,
+        children: [
+          TextButton(onPressed: (){}, child: Text('cancle'),),
+          ElevatedButton(onPressed: () {}
+          ,child: Text('OK'),),
+        ],
+      ),
+
+    ],
+    ),
+  ),),);
+   },
+  );
+}

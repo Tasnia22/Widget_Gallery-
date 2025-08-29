@@ -1,0 +1,66 @@
+
+import 'package:flutter/material.dart';
+
+class Tool_tip extends StatelessWidget
+{
+  const Tool_tip({super.key});
+
+@override
+
+Widget build(BuildContext context)
+{
+  return Scaffold(
+
+    appBar: AppBar(
+      title: Text('Hello World'),
+      backgroundColor: Colors.amberAccent,
+      leading: IconButton(
+        icon: Icon(Icons.menu),
+
+
+      tooltip:'Menu',
+      onPressed:() {
+        
+      },),
+      ),
+
+body: Center(
+  child: Row(
+    mainAxisAlignment: MainAxisAlignment.center,
+    children: [
+      Container(
+        width: 300,
+        height: 200,
+        color: Colors.lightGreenAccent,
+        child: Padding(padding: 
+        const EdgeInsets.all(20),
+        child:Center(
+        child: Tooltip(
+          message:"Text",
+          child:Text(
+            'somthing new',
+            textAlign:TextAlign.center,
+           style:   TextStyle(
+              color: const Color.fromARGB(255, 20, 23, 23),
+              fontSize: 25,
+              
+            ),
+          )
+        ),),
+      ),),
+    ],
+  ),
+),
+
+
+
+      );
+
+    
+
+  
+}
+
+
+
+}

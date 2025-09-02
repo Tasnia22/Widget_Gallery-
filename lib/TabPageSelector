@@ -1,0 +1,53 @@
+import 'package:flutter/material.dart';
+
+class TabPage extends StatefulWidget {
+  const TabPage({super.key});
+
+  @override
+  State<TabPage> createState() => TabPageState();
+}
+
+class TabPageState extends State<TabPage> with SingleTickerProviderStateMixin {
+  late TabController _tabController;
+
+  @override
+  void initState() {
+    super.initState();
+    _tabController = TabController(length: 3, vsync: this);
+  }
+
+  @override
+  void dispose() {
+    _tabController.dispose();
+    super.dispose();
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(title: Text('TabPageSelector Example')),
+      body: Column(
+        children: [
+          Expanded(
+            child: TabBarView(
+              controller: _tabController,
+              children: [
+                Center(child: Text('page 1', style: TextStyle(fontSize: 23))),
+                Center(child: Text('page 2', style: TextStyle(fontSize: 23))),
+                Center(child: Text('page 3', style: TextStyle(fontSize: 23))),
+              ],
+            ),
+          ),
+          Padding(
+            padding: EdgeInsets.all(23),
+            child: TabPageSelector(
+              controller: _tabController,
+              color: Colors.amberAccent,
+              selectedColor: Colors.blueAccent,
+            ),
+          ),
+        ],
+      ),
+    );
+  }
+}

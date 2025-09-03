@@ -1,0 +1,64 @@
+// ...existing code...
+import 'package:flutter/cupertino.dart';
+import 'package:flutter/material.dart';
+
+class Swap extends StatefulWidget {
+  const Swap({super.key});
+
+  @override
+  State<Swap> createState() => _SwapState();
+}
+
+class _SwapState extends State<Swap> {
+  bool isDark = false;
+
+  @override
+  Widget build(BuildContext context) {
+    final bgColor = isDark ? const Color.fromARGB(255, 7, 17, 28) : Colors.white;
+    final iconColor = isDark ? Colors.white : const Color.fromARGB(255, 33, 30, 234);
+
+    return Scaffold(
+      appBar: AppBar(
+        // animated highlighted headline when dark mode
+        title: AnimatedContainer(
+          duration: const Duration(milliseconds: 250),
+          padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 6),
+          decoration: isDark
+              ? BoxDecoration(
+                  color: Colors.deepPurpleAccent.withOpacity(0.18),
+                  borderRadius: BorderRadius.circular(8),
+                )
+              : null,
+          child: Text(
+            'Switch_Example',
+            style: TextStyle(
+              color: isDark ? Colors.white : Colors.black,
+              fontWeight: FontWeight.w600,
+              fontSize: 20,
+            ),
+          ),
+        ),
+        backgroundColor: bgColor,
+        actions: [
+          IconButton(
+            tooltip: isDark ? 'Switch to light' : 'Switch to dark',
+            onPressed: () => setState(() => isDark = !isDark),
+            icon: AnimatedSwitcher(
+              duration: const Duration(milliseconds: 250),
+              transitionBuilder: (child, animation) =>
+                  RotationTransition(turns: animation, child: FadeTransition(opacity: animation, child: child)),
+              child: Icon(
+                isDark ? Icons.nightlight_sharp : Icons.wb_sunny,
+                key: ValueKey<bool>(isDark),
+                color: iconColor,
+                size: 23,
+              ),
+            ),
+          ),
+          const SizedBox(width: 8),
+        ],
+      ),
+      backgroundColor: bgColor,
+      body: const SizedBox.shrink(), // middle option removed, header-only switch
+    );
+  }}

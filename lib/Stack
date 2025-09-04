@@ -1,0 +1,48 @@
+
+import 'package:flutter/material.dart';
+
+class Stack_Demo extends StatelessWidget
+{
+  const Stack_Demo({super.key});
+  @override
+  Widget build(BuildContext context)
+  {
+    return Scaffold(
+      appBar: AppBar(
+        title: Text('Stack Demo'),),
+        backgroundColor: const Color.fromARGB(255, 222, 228, 228),
+
+body:Center(
+
+child: Stack(
+  children: [
+    Icon(Icons.notifications,size: 80,color: Colors.blue),
+
+    Positioned(
+      right: 0,
+      top: 0,
+      child:Container(
+        padding: EdgeInsets.all(5),
+        decoration: BoxDecoration(
+          color: const Color.fromARGB(255, 228, 46, 5),
+          shape: BoxShape.circle,
+        ),
+
+        child: Text('5',
+        style: TextStyle(
+          color: Colors.white,fontSize: 
+          12,
+          fontWeight: FontWeight.bold,
+        ),),
+      ) 
+    )
+  ],
+),
+
+
+),
+
+      
+    );
+  }
+}

@@ -1,0 +1,32 @@
+
+import 'package:flutter/material.dart';
+
+class APP_Bar extends StatelessWidget
+
+{
+  const APP_Bar({super.key});
+
+  @override
+  Widget build(BuildContext context)
+  {
+    return Scaffold(
+      backgroundColor: const Color.fromARGB(255, 175, 241, 182),
+      appBar: AppBar(
+        backgroundColor: const Color.fromARGB(255, 136, 130, 216),
+        title: Text('App_Bar Demo',
+        
+        ),
+        actions: [
+          IconButton(onPressed: (){
+            ScaffoldMessenger.of(context,).showSnackBar(SnackBar(content: Text('this is a Snackbar')));
+
+          },
+               icon: Icon(Icons.add_alert),
+           tooltip: 'Show Snackbar'),
+                     TextButton( onPressed: () {}, child: const Text('Action 1')),
+
+        ],
+      ),
+    );
+  }
+}

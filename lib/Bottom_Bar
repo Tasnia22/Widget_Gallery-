@@ -1,0 +1,37 @@
+
+
+
+import 'package:flutter/material.dart';
+
+class BOTTOM_Demo extends StatelessWidget
+{
+  const BOTTOM_Demo({super.key});
+
+  @override
+
+Widget build(BuildContext context)
+{
+  return Scaffold(
+    backgroundColor: const Color.fromARGB(255, 208, 195, 244),
+    appBar: AppBar(
+      backgroundColor: Colors.deepOrangeAccent,
+      title: Text('Bottom_Demo'),
+    ),
+body: Center(
+  child: Text('Simple Bottom Bar'),
+
+),
+bottomNavigationBar: BottomNavigationBar(items:
+[
+  BottomNavigationBarItem(icon: Icon(Icons.home),label: 'Home'),
+    BottomNavigationBarItem(icon: Icon(Icons.search),label: 'Search'),
+
+  BottomNavigationBarItem(icon: Icon(Icons.person),label: 'Person'),
+
+]),
+
+
+  );
+}
+
+}

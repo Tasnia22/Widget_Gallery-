@@ -1,0 +1,42 @@
+
+import 'package:flutter/material.dart';
+
+class BOTTOM_AppBar extends StatelessWidget
+{
+  const BOTTOM_AppBar({super.key});
+
+  @override
+
+  Widget build(BuildContext context)
+  {
+    return Scaffold(
+      appBar: AppBar(title: Text('Bottom App Bar'),
+      backgroundColor: Colors.amber,),
+      body: Center(
+        child: Text('Home Bottom App Bar page'),
+      ),
+
+floatingActionButton: FloatingActionButton(onPressed: (){},
+child: Icon(Icons.add),),
+floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
+bottomNavigationBar: BottomAppBar(
+  shape: CircularNotchedRectangle(),
+  color: const Color.fromARGB(255, 181, 195, 220),
+
+  child: Row(
+    mainAxisAlignment: MainAxisAlignment.spaceAround,
+    children: [
+      IconButton(onPressed: (){}, icon: Icon(Icons.settings,color: Colors.black45),),
+   
+       IconButton(onPressed: (){}, icon: Icon(Icons.call,color: Colors.black45),),
+      IconButton(onPressed: (){}, icon: Icon(Icons.info,color: Colors.black45),),
+  
+   
+    ],
+  ),
+),
+
+
+    );
+  }
+}

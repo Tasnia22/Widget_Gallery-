@@ -1,0 +1,35 @@
+
+import 'package:flutter/material.dart';
+
+class Check_Box extends StatefulWidget
+{
+  const Check_Box({super.key});
+  @override
+State<Check_Box> createState() => _Check_BoxState();
+
+
+}
+
+class _Check_BoxState extends State<Check_Box>
+{
+  bool isChecked =false;
+
+  @override
+  Widget build(BuildContext context)
+  {
+    return Scaffold(
+             appBar: AppBar(
+title: Text('CheckBox_Demo'),   backgroundColor: Colors.blueGrey,          ),
+body: Center(
+  child: Checkbox(value: isChecked, onChanged:(bool?newValue)
+  {
+    setState(() {
+      isChecked =newValue!;
+    });
+  },
+  activeColor: Colors.green,
+checkColor:Colors.white,
+),),
+    );
+  }
+}

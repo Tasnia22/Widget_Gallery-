@@ -1,0 +1,65 @@
+
+import 'package:flutter/material.dart';
+import 'package:flutter/widgets.dart';
+
+class Card_demo2 extends StatelessWidget
+{
+  const Card_demo2({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    // TODO: implement build
+    
+    return Scaffold(
+      appBar: AppBar(
+        title: Text('Card Demo_02'),
+      ),
+
+body: Center(
+  child: Column(
+    mainAxisAlignment: MainAxisAlignment.center,
+    children: [
+      Card(child: _SampleCard(cardName:'Elevated Card')),
+            Card.filled(child: _SampleCard(cardName:'Filled Card',color:Colors.blueAccent)),
+                  Card.outlined(child: _SampleCard(cardName:'Outlined Card')),
+
+
+    ],
+  ),
+),
+
+    );
+  }
+}
+
+class _SampleCard extends StatelessWidget
+{
+  final String cardName;
+  final Color?color;
+  const _SampleCard({required this.cardName,this.color});
+
+  @override
+  Widget build(BuildContext context)
+  {
+    return Padding(padding: EdgeInsets.all(12.0),
+    child: SizedBox(
+      width: 250,
+      child: Column(
+        mainAxisSize: MainAxisSize.min,
+        children: <Widget>[
+          Text(
+            cardName,style: Theme.of(context).textTheme.titleMedium,
+            textAlign: TextAlign.center,
+          ),
+          SizedBox(height: 8),
+          Text('This is an example description for the card.',
+              style: Theme.of(context).textTheme.bodyMedium,
+              textAlign: TextAlign.center,
+          ),
+        ],
+      ),
+
+    ),
+    );
+  }
+}

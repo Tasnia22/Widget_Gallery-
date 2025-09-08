@@ -1,0 +1,96 @@
+
+import 'package:flutter/cupertino.dart';
+import 'package:flutter/material.dart';
+
+class Home_Page extends StatefulWidget{
+
+  const Home_Page({super.key});
+
+  @override
+
+  State<Home_Page> createState() => _Home_PageState();
+}
+
+class _Home_PageState extends State<Home_Page>
+{
+
+    double? bmiValue;
+    final TextEditingController heightController = TextEditingController();
+    final TextEditingController weightController =TextEditingController();
+
+
+ Widget buildInputUi()
+ {
+  return Column(
+    mainAxisSize: MainAxisSize.min,
+    children: [
+      TextField(
+        controller: heightController,
+        decoration: const InputDecoration(
+          hintText: ("Height in cm"),
+        ),
+      ),
+
+      TextField(
+        controller: weightController,
+        decoration: InputDecoration(
+          hintText: "Weight in kg"),
+        ),
+
+        MaterialButton(
+          color: Colors.greenAccent,
+          onPressed: 
+        calculatedBMI,
+        child: Text('Calculate BMI'),),
+
+    
+    ],
+  );
+ }
+Widget buildOutputUi()
+{
+  return Column(
+    mainAxisSize: MainAxisSize.min,
+    children: [
+      Text(
+        "${bmiValue?.toStringAsFixed(2)}"
+      ),
+      MaterialButton(
+color: Colors.greenAccent,
+onPressed: checkAnother,
+child: const Text('Check Another'),
+      )
+    ],
+  );
+}
+void calculatedBMI()
+{
+  final double h = double.tryParse(heightController.text)!/100;
+  final double w= double.tryParse(weightController.text)!;
+  setState(() {
+    bmiValue =w/(h*h);
+  });
+}
+
+void checkAnother()
+{
+  setState(() {
+    heightController.text="";
+    weightController.text="";
+    bmiValue=null;
+  });
+}
+
+@override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      body: Center(
+        child: bmiValue == null ? buildInputUi() : buildOutputUi(),
+      ),
+    );
+  }
+
+
+
+}
+

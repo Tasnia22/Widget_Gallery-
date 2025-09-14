@@ -1,0 +1,55 @@
+
+import 'package:flutter/material.dart';
+
+class TO_DOPage extends StatefulWidget {
+  const TO_DOPage({super.key});
+
+  @override
+  State<TO_DOPage> createState() => _TO_DOPageState();
+}
+
+class _TO_DOPageState extends State<TO_DOPage> {
+
+  // text editing controller  to get access to what the user type
+  //greeting massage variable
+  
+  String name="";
+TextEditingController myController = TextEditingController();
+void greetUser()
+{
+
+  setState(() {
+    name="Hello,"+myController.text;
+  });
+  print(myController.text);
+}
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      body: 
+
+      Center(
+        child:Padding(padding: EdgeInsets.all(20),
+        child:Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+
+        
+    children: [
+      Text(name),
+          TextField(
+            controller:  myController,
+            decoration: InputDecoration(
+              border: OutlineInputBorder(borderRadius: BorderRadius.all(Radius.circular(24))),
+              hintText: 'UserName',
+
+            ),
+          ),
+
+          ElevatedButton(onPressed: greetUser, child: Text('Tap')),
+        ],
+      ),
+      ),),
+    );
+  }
+}

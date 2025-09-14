@@ -1,0 +1,56 @@
+
+
+import 'package:flutter/material.dart';
+
+class MyWidget extends StatefulWidget {
+  const MyWidget({super.key});
+
+  @override
+  State<MyWidget> createState() => _MyWidgetState();
+}
+
+class _MyWidgetState extends State<MyWidget> {
+// variable
+int counter =0;
+
+// method
+
+void increment_Counter()
+{
+
+// setState rebuilds the widget
+
+setState(() {
+    counter++;
+
+});
+
+}
+
+//UI [user interface]
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+
+body: Center(
+child:Column(
+  mainAxisSize: MainAxisSize.min,
+  // mainAxisAlignment: MainAxisAlignment.center,
+  crossAxisAlignment: CrossAxisAlignment.center,
+  children: [
+
+    Text('Welcome here'),
+    Text(counter.toString(),
+    style: TextStyle(
+      fontSize: 40,
+    ),),
+    //button
+
+    ElevatedButton(onPressed: increment_Counter, 
+    child: Text('Increment'),),
+  ],
+),
+      ),  );
+  }
+}
